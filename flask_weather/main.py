@@ -24,20 +24,20 @@ def weather():
                 return 'Error: Please enter valid zipcode or city name'
             if g.status == 'OVER_QUERY_LIMIT':
                 return 'Error: Number of free queries exceeded, try after a few minutes'
-            print str(g.current_result.lat)+','+str(g.current_result.lng)
+            print(str(g.current_result.lat)+','+str(g.current_result.lng))
             r = requests.get(url+
                 str(g.current_result.lat)+','+str(g.current_result.lng)+'?exclude=minutely,hourly&units=si')
         except:
             return 'Error: Please enter valid zipcode or address, country'
     else:
         return app.response_class(response="No weather service set.", status=500)
-    print r
-    print r.headers
-    print r.content
+    print(r)
+    print(r.headers)
+    print(r.content)
     if r.status_code != requests.codes.ok:
         return 'Error: Please enter valid zipcode or city name'
     json_object = r.json()
-    print json_object
+    print(json_object)
     # return app.response_class(
     #    response=json.dumps(r.text),
     #    status=200,
@@ -50,7 +50,7 @@ def weather():
         name = json_object['name']
         humidity = float(json_object['main']['humidity'])
         wind_speed = "%.2f" % (float(json_object['wind']['speed']) * 60.0 / 1000.0)
-        print json_object
+        print(json_object)
         return render_template('weather_openweathermap.html', temp_c=temp_c, temp_f=temp_f,
                                wind_speed=wind_speed, weather=json_object)
     elif 'darksky' in url:
