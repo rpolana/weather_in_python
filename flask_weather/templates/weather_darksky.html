@@ -3,7 +3,7 @@
     <h1>Current weather at {{weather['name']}}:</h1>
     <h3 style="text-indent: 50px;">{{weather['currently']['summary']}}</h3>
     <h3 style="text-indent: 50px;">Temperature: {{ weather['temp_c'] }}&deg;C ({{weather['temp_f']}}&deg;F) degrees</h3>
-    <h3 style="text-indent: 50px;">Precipitation Probability: {{weather['precipitation']}}%</h3>
+    <h3 style="text-indent: 50px;">Chance of Rain: {{weather['precipitation']}}%</h3>
     <h3 style="text-indent: 50px;">Humidity: {{weather['humidity']}}%</h3>
     <h3 style="text-indent: 50px;">Wind Speed: {{weather['wind_speed']}} km/hour</h3>
     <h1>{{n_days}}-day forecast for {{weather['name']}}:</h1>
@@ -11,6 +11,6 @@
     {% for i in range(1,n_days+1) %}
         <h3 style="text-indent: 50px;">{{forecast[i].day + ": " + forecast[i].summary +
             " Temprature Range: " + forecast[i].temperatureMin + "-" +
-            forecast[i].temperatureMax}}&deg;C{{", Precipitation Probability: " + forecast[i].precipitation}}%</h3>
+            forecast[i].temperatureMax}}&deg;C{{", Chance of Rain: " + forecast[i].precipitation}}%</h3>
     {% endfor %}
 {% include 'footer.html' %}
