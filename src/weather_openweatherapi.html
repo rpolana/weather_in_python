@@ -1,7 +1,0 @@
-{% include 'header.html' %}
-    <h1>Current weather at {{weather['name']}}:</h1>
-    <h3 style="text-indent: 50px;">{{weather['weather'][0]['main']}}</h3>
-    <h3 style="text-indent: 50px;">Temperature: {{ temp_c }}C ({{temp_f}}F) degrees</h3>
-    <h3 style="text-indent: 50px;">Humidity: {{weather['main']['humidity']}}%</h3>
-    <h3 style="text-indent: 50px;">Wind Speed: {{wind_speed}} km/hour</h3>
-{% include 'footer.html' %}
